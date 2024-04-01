@@ -5,19 +5,22 @@ import {
   Route,
   Link,
   BrowserRouter,
-  Routes
+  Routes,
 } from "react-router-dom";
 import Home from "./Pages/Home/Home";
-
+import Navbar from "../src/components/Shared/navbar/Navbar"
 
 function App() {
-  return (<>
-  <BrowserRouter>
-  <Routes>
-    <Route path = "/" element = {<Home/>}/>
-  </Routes>
-  </BrowserRouter>
-  </>)
+  return (
+    <>
+      <BrowserRouter>
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<Home />} />
+        </Routes>
+      </BrowserRouter>
+    </>
+  );
 }
 
 export default App;
