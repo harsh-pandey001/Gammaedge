@@ -9,16 +9,20 @@ import {
 } from "react-router-dom";
 import Home from "./Pages/Home/Home";
 import Navbar from "../src/components/Shared/navbar/Navbar"
+import Signup from "./Pages/Credentials/Signup/Signup";
+import Login from "./Pages/Credentials/Login/Login";
 
 function App() {
   return (
     <>
-      <BrowserRouter>
+    <Signup/>
+    {/* <Login/> */}
+      {/* <BrowserRouter>
         <Navbar />
         <Routes>
           <Route path="/" element={<Home />} />
         </Routes>
-      </BrowserRouter>
+      </BrowserRouter> */}
     </>
   );
 }
