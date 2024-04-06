@@ -11,18 +11,24 @@ import Home from "./Pages/Home/Home";
 import Navbar from "../src/components/Shared/navbar/Navbar"
 import Signup from "./Pages/Credentials/Signup/Signup";
 import Login from "./Pages/Credentials/Login/Login";
+import Food from "./Pages/Food/Food";
+import Destination from "./Pages/Destination/Destination";
+import Packages from "./Pages/Packages/Packages";
 
 function App() {
   return (
     <>
-    <Signup/>
+    {/* <Signup/> */}
     {/* <Login/> */}
-      {/* <BrowserRouter>
-        <Navbar />
+      <BrowserRouter>
+        <Navbar/>
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home/>} />
+          <Route path="/food" element={<Food/>} />
+          <Route path="/destination" element={<Destination/>} />
+          <Route path="/packages" element={<Packages/>} />
         </Routes>
-      </BrowserRouter> */}
+      </BrowserRouter>
     </>
   );
 }

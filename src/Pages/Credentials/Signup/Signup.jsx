@@ -1,41 +1,83 @@
-import React from "react";
+import React, { useState } from "react";
 import style from "./signup.module.css";
 
 const Signup = () => {
+  const [credentials, setCredentials] = useState({
+    name: "",
+    num: "",
+    nationality: "",
+    gender: "",
+    email: "",
+    password: "",
+    // cpassword: "",
+  });
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const { name, num, nationality, gender, email, password } = credentials;
+
+    const response = await fetch(`http://localhost:5000/form/signup/create`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        name,
+        num,
+        nationality,
+        gender,
+        email,
+        password,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+  };
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
   return (
     <>
       <div className={style.big}>
         <div className={style.container}>
           <div className={style.heading}>Sign In</div>
-          <form className={style.form} action="">
+          <form onSubmit={handleSubmit} className={style.form} action="">
             <input
               placeholder="Name"
               id="name"
               name="name"
+              onChange={onChange}
               type="name"
               className={style.input}
               required=""
             />
             <input
               placeholder="Phone number"
-              id="number"
-              name="number"
+              id="num"
+              name="num"
               type="number"
+              onChange={onChange}
               className={style.input}
               required=""
             />
-            <select id="Gender" name="genders" className={style.input}>
-             <option disabled selected value className={style.input}> Gender </option>
+
+            <select id="gender" name="gender" onChange={onChange} className={style.input}>
+              <option disabled selected value className={style.input}>
+                {" "}
+                Gender{" "}
+              </option>
               <option value="Male">Male</option>
               <option value="Female">Female</option>
               <option value="Other">Other</option>
-             
             </select>
 
             <input
               placeholder="Nationality"
               id="nationality"
               name="nationality"
+              onChange={onChange}
               type="nationality"
               className={style.input}
               required=""
@@ -44,6 +86,7 @@ const Signup = () => {
               placeholder="E-mail"
               id="email"
               name="email"
+              onChange={onChange}
               type="email"
               className={style.input}
               required=""
@@ -51,12 +94,13 @@ const Signup = () => {
             <input
               placeholder="Password"
               id="password"
+              onChange={onChange}
               name="password"
               type="password"
               className={style.input}
               required=""
             />
-           
+
             <input
               value="Sign In"
               type="submit"
