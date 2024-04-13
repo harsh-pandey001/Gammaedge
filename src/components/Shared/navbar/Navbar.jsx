@@ -5,13 +5,13 @@ import { Link } from "react-router-dom";
 const Navbar = () => {
   return (
     <>
-      <nav class="navbar navbar-expand-lg bg-body-tertiary">
-        <div class="container-fluid">
-          <Link class="navbar-brand" href="#">
+      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+        <div className="container-fluid">
+          <Link className="navbar-brand" href="#">
             MyIndoreGuide
           </Link>
           <button
-            class="navbar-toggler"
+            className="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#navbarSupportedContent"
@@ -19,73 +19,48 @@ const Navbar = () => {
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
-            <span class="navbar-toggler-icon"></span>
+            <span className="navbar-toggler-icon"></span>
           </button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-              <li class="nav-item">
-                <Link class="nav-link active" aria-current="page" to="/">
+          <div className="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+              <li className="nav-item">
+                <Link className="nav-link active" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/destination">
+              <li className="nav-item">
+                <Link className="nav-link" to="/destination">
                   Destinations
                 </Link>
               </li>
-              {/* <li class="nav-item dropdown">
-                <Link
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  role="button"
-                  data-bs-toggle="dropdown"
-                  aria-expanded="false"
-                >
-                  Dropdown
-                </Link>
-                <ul class="dropdown-menu">
-                  <li>
-                    <Link class="dropdown-item" href="#">
-                      Action
-                    </Link>
-                  </li>
-                  <li>
-                    <Link class="dropdown-item" href="#">
-                      Another action
-                    </Link>
-                  </li>
-                  <li>
-                    <hr class="dropdown-divider" />
-                  </li>
-                  <li>
-                    <Link class="dropdown-item" href="#">
-                      Something else here
-                    </Link>
-                  </li>
-                </ul>
-              </li> */}
-              <li class="nav-item">
-                <Link class="nav-link" to="/food" aria-disabled="true">
+              <li className="nav-item">
+                <Link className="nav-link" to="/food" aria-disabled="true">
                   Food
                 </Link>
               </li>
-              <li class="nav-item">
-                <Link class="nav-link" to="/packages" aria-disabled="true">
+              <li className="nav-item">
+                <Link className="nav-link" to="/packages" aria-disabled="true">
                   Packages
                 </Link>
               </li>
             </ul>
-            <form class="d-flex" role="search">
+            {/* <form className="d-flex" role="search">
               <input
-                class="form-control me-2"
+                className="form-control me-2"
                 type="search"
                 placeholder="Search"
                 aria-label="Search"
               />
-              <button class="btn btn-outline-success" type="submit">
+              <button className="btn btn-outline-success" type="submit">
                 Search
               </button>
-            </form>
+            </form> */}
+            <Link to= "/sign">
+              {" "}
+              <button className="btn btn-success" type="submit">
+                Login
+              </button>
+            </Link>
           </div>
         </div>
       </nav>

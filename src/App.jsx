@@ -15,6 +15,7 @@ import Food from "./Pages/Food/Food";
 import Destination from "./Pages/Destination/Destination";
 import Packages from "./Pages/Packages/Packages";
 
+
 function App() {
   return (
     <>
@@ -22,11 +23,14 @@ function App() {
     {/* <Login/> */}
       <BrowserRouter>
         <Navbar/>
+  
         <Routes>
           <Route path="/" element={<Home/>} />
           <Route path="/food" element={<Food/>} />
           <Route path="/destination" element={<Destination/>} />
           <Route path="/packages" element={<Packages/>} />
+          <Route path="/sign" element={<Signup/>} />
+          
         </Routes>
       </BrowserRouter>
     </>
