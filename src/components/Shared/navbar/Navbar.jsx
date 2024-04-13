@@ -1,6 +1,7 @@
 import React from "react";
 import "./navbar.css";
 import { Link } from "react-router-dom";
+import logo from "../../../assets/Logo.png"
 
 const Navbar = () => {
   return (
@@ -8,7 +9,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg bg-body-tertiary">
         <div className="container-fluid">
           <Link className="navbar-brand" href="#">
-            MyIndoreGuide
+            {/* <img src={logo}/> */}
           </Link>
           <button
             className="navbar-toggler"
@@ -24,7 +25,7 @@ const Navbar = () => {
           <div className="collapse navbar-collapse" id="navbarSupportedContent">
             <ul className="navbar-nav me-auto mb-2 mb-lg-0">
               <li className="nav-item">
-                <Link className="nav-link active" aria-current="page" to="/">
+                <Link className="nav-link" aria-current="page" to="/">
                   Home
                 </Link>
               </li>
@@ -57,8 +58,8 @@ const Navbar = () => {
             </form> */}
             <Link to= "/sign">
               {" "}
-              <button className="btn btn-success" type="submit">
-                Login
+              <button  className="btn btn-success p-2" type="submit">
+                Sign-up
               </button>
             </Link>
           </div>
