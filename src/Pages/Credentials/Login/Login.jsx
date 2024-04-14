@@ -1,16 +1,49 @@
 import React, { useState } from "react";
-import style from "./login.module.css"
-
-
+import style from "./login.module.css";
+import { useNavigate } from "react-router-dom";
 
 
 const Login = (props) => {
-  return (<>
-   <div className={style.big}>
+  const [credentials, setCredentials] = useState({ email: "", password: "" });
+
+let history = useNavigate()
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+    const response = await fetch(`http://localhost:5000/form/auth/login`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: credentials.email,
+        password: credentials.password,
+      }),
+    });
+    const json = await response.json();
+    console.log(json);
+
+    if (json.success) {
+      //Save the auth token and redirect
+      localStorage.setItem("token", json.authtoken);
+      // props.showalert("Logged in  Successfully","success");
+      alert("Logged in  Successfully", json.authtoken);
+      history("/")
+    } else {
+      // props.showalert("Invalid Details", "danger");
+      alert("invalid credentials");
+    }
+  };
+  const onChange = (e) => {
+    setCredentials({ ...credentials, [e.target.name]: e.target.value });
+  };
+
+  return (
+    <>
+      <div className={style.big}>
         <div className={style.container}>
           <div className={style.heading}>Log-In </div>
-          <form className={style.form} action="">
-            
+          <form className={style.form} action="" onSubmit={handleSubmit}>
             <input
               placeholder="E-mail"
               id="email"
@@ -18,6 +51,8 @@ const Login = (props) => {
               type="email"
               className={style.input}
               required=""
+              value={credentials.email}
+              onChange={onChange}
             />
             <input
               placeholder="Password"
@@ -26,8 +61,12 @@ const Login = (props) => {
               type="password"
               className={style.input}
               required=""
+              value={credentials.password}
+              onChange={onChange}
             />
-               <span className={style.forgot_password}><a href="#">Forgot Password ?</a></span>
+            <span className={style.forgot_password}>
+              <a href="#">Forgot Password ?</a>
+            </span>
             <input
               value="Log-In"
               type="submit"
@@ -66,8 +105,8 @@ const Login = (props) => {
           </div>
         </div>
       </div>
-  </>
-  )
-}
+    </>
+  );
+};
 
-export default Login
+export default Login;

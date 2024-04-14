@@ -1,17 +1,22 @@
 const User = require("../model/user");
 const express = require("express");
 const router = express.Router();
-const { body, validationResult } = require('express-validator');
-const bcrypt = require('bcryptjs');
+const { body, validationResult } = require("express-validator");
+const bcrypt = require("bcryptjs");
+const JWT_SECRET = "Harshisgoodboy";
+var jwt = require('jsonwebtoken');
 
-//route :1 For signup
+//route :1 For signup end point
 router.post("/create", async (req, res) => {
   console.log("connected with backend", req.body);
+
+  const salt = await bcrypt.genSalt(10);
+  const secPass = await bcrypt.hash(req.body.password, salt);
   const newuser = new User({
     name: req.body.name,
     email: req.body.email,
     num: req.body.num,
-    password: req.body.password,
+    password: secPass,
     nationality: req.body.nationality,
     gender: req.body.gender,
   });
@@ -20,9 +25,8 @@ router.post("/create", async (req, res) => {
   res.json({ complete });
 });
 
-
-// Route 2 : Login
-router.post(
+// Route 2 : Login   end point
+router.post( 
   "/login",
   [
     body("email", "Enter a valid E-mail").isEmail(),
@@ -41,33 +45,36 @@ router.post(
       let user = await User.findOne({ email });
       if (!user) {
         success = false;
-        return res
-          .status(400)
-          .json({ error: "please try to login with correct credentials" });
+        return res.status(400).json({ error: "Can't find the email" });
       }
       const passwordCompare = await bcrypt.compare(password, user.password);
       if (!passwordCompare) {
         success = false;
-        return res
-          .status(400)
-          .json({
-            success,
-            error: "please try to login with correct credentials",
-          });
+        return res.status(400).json({
+          success,
+          error: "Password is wrong",
+          password: user.password,
+          right: password,
+        });
       }
       const data = {
         user: {
           id: user.id,
         },
       };
-      // const authtoken = jwt.sign(data, JWT_SECRET);
-      // success = true;
-      // res.json({ success, authtoken });
+      const authtoken = jwt.sign(data, JWT_SECRET);
+      success = true;
+      res.json({ success, authtoken });
     } catch (error) {
       console.error(error.message);
       res.status(500).send("Internal server occur");
     }
   }
 );
+
+//Routes : 3  
+router.get("/search"
+
+)
 
 module.exports = router;

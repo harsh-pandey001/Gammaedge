@@ -1,15 +1,15 @@
 import React, { useState } from "react";
-import beach from "../../assets/beach.jpg";
-import resort from "../../assets/resort.jpg";
-import camp from "../../assets/camp.jpg";
-import mountain from "../../assets/mountain.jpg";
-import gulp from "../../assets/gulp.jpg";
+import beach from "../../assets/Destination4.jpg";
+import resort from "../../assets/Destination1.png";
+import camp from "../../assets/Destination3.png";
+import mountain from "../../assets/Destination6.jpg";
+import gulp from "../../assets/Destination5.jpg";
 import {
   Carousel,
   CarouselItem,
   CarouselControl,
   CarouselIndicators,
-  CarouselCaption
+  CarouselCaption,
 } from "reactstrap";
 
 
@@ -17,29 +17,29 @@ import {
 const items = [
   {
     src: resort,
-    altText: "Slide 1",
-    caption: "Resorts"
+    // altText: "Slide 1",
+    caption: "Crecent Waterpark",
   },
   {
     src: gulp,
-    altText: "Slide 2",
-    caption: "Rock Climbing"
+    // altText: "Slide 2",
+    caption: "Patalpani",
   },
   {
     src: camp,
     altText: "Slide 3",
-    caption: "Camping"
+    caption: "Chhatri Bagh",
   },
   {
     src: beach,
     altText: "Slide 4",
-    caption: "Beach"
+    caption: " ",
   },
   {
     src: mountain,
     altText: "Slide 5",
-    caption: "Mountain Climbing"
-  }
+    caption: "Mountain Climbing",
+  },
 ];
 
 const Destination = () => {
@@ -58,12 +58,12 @@ const Destination = () => {
     setActiveIndex(nextIndex);
   };
 
-  const goToIndex = newIndex => {
+  const goToIndex = (newIndex) => {
     if (animating) return;
     setActiveIndex(newIndex);
   };
 
-  const slides = items.map(item => (
+  const slides = items.map((item) => (
     <CarouselItem
       onExiting={() => setAnimating(true)}
       onExited={() => setAnimating(false)}
@@ -71,35 +71,34 @@ const Destination = () => {
     >
       <img src={item.src} alt={item.altText} className="img-carousel" />
       <CarouselCaption
-        captionText={item.altText}
+        // captionText={item.altText}
         captionHeader={item.caption}
       />
     </CarouselItem>
   ));
 
   return (
-    <Carousel
-      activeIndex={activeIndex}
-      next={next}
-      previous={previous}
-    >
-      <CarouselIndicators
-        items={items}
-        activeIndex={activeIndex}
-        onClickHandler={goToIndex}
-      />
-      {slides}
-      <CarouselControl
-        direction="prev"
-        directionText="Previous"
-        onClickHandler={previous}
-      />
-      <CarouselControl
-        direction="next"
-        directionText="Next"
-        onClickHandler={next}
-      />
-    </Carousel>
+    <>
+      <h1 style={{margin:"auto", display:"flex"}}>Destinations</h1>
+      <Carousel activeIndex={activeIndex} next={next} previous={previous}>
+        <CarouselIndicators
+          items={items}
+          activeIndex={activeIndex}
+          onClickHandler={goToIndex}
+        />
+        {slides}
+        <CarouselControl
+          direction="prev"
+          directionText="Previous"
+          onClickHandler={previous}
+        />
+        <CarouselControl
+          direction="next"
+          directionText="Next"
+          onClickHandler={next}
+        />
+      </Carousel>
+    </>
   );
 };
 
