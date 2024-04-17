@@ -1,0 +1,47 @@
+.container {
+    background-image:
+        url("../../assets/foodhub-slider-main-food-v4.jpg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    height: 100vh;
+    color: #ffffff;
+    display:grid;
+    gap: 1rem;
+    align-content: center;
+    padding-left: 5rem;
+}
+
+.container h1 {
+    text-align: center;
+    font-size: 40px;
+    line-height: 40px;
+    text-align: left;
+    font-weight: 700;
+    font-style: normal;
+}
+
+.container h3 {
+    font-size: 20px;
+    line-height: 20px;
+    text-align: left;
+    font-weight: 400;
+    font-style: normal;
+}
+
+
+.formControl{
+    background-color: #fff;
+    background-image: none;
+    border: 2px solid rgba(204, 204, 204, .5);
+    box-shadow: 0 1px 1px rgba(0,0,0,.075) inset;
+    color: #555;
+    display: block;
+    font-size: 15px;
+    height: 42px;
+    line-height: 1.42857;
+    padding: 6px 40px;
+    outline: 0;
+    transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
+    width: 100%;
+}

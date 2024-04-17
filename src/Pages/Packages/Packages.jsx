@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { Container, Row, CardColumns, Badge } from "reactstrap";
 import style from "./packages.module.css";
 import TourCard from "../../components/Packages/Tourcard";
-// import "../App.css";
 import imgCard1 from "../../assets/Destination1.png";
 import imgCard2 from "../../assets/Destination2.jpg";
 import imgCard3 from "../../assets/Destination3.png";
@@ -13,6 +12,7 @@ import imgCard7 from "../../assets/Destination1.png";
 import imgCard8 from "../../assets/Destination6.jpg";
 import imgCard9 from "../../assets/Destination2.jpg";
 import imgBarobaybay from "../../assets/Destination3.png";
+import { useNavigate } from "react-router-dom";
 
 const tours = [
   {
@@ -106,7 +106,18 @@ const itemCategories = [
   "honeymoon",
 ];
 
-const Packages = () => {
+const Packages = (props) => {
+
+  let history = useNavigate();
+  useEffect(() => {
+    if (!localStorage.getItem("token")) {
+      props.showalert("Login to access all features", "info");
+      history("/login");
+    } 
+    // eslint-disable-next-line
+  }, []);
+
+
   const [cards, setCards] = useState([]);
   const [category, setCategory] = useState("all");
   const [query, setQuery] = useState("");

@@ -1,0 +1,16 @@
+.container{
+    margin: 3rem 5rem;
+    height: 418px;
+}
+
+.sectionDest{
+    
+}
+
+.swiper-button-next{
+display: none;
+}
+
+.swiper-button-prev{
+display: none;
+}

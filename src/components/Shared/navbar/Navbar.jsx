@@ -1,15 +1,21 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./navbar.css";
-import { Link } from "react-router-dom";
-import logo from "../../../assets/Logo.png"
+import { Link, useNavigate } from "react-router-dom";
+import logo from "../../../assets/Logo.png";
 
 const Navbar = () => {
+  let history = useNavigate();
+ const handleLogout = () => {
+    localStorage.removeItem('token');
+    history("/login");
+  }
   return (
     <>
-      <nav className="navbar navbar-expand-lg bg-body-tertiary">
+      <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
-          <Link className="navbar-brand" href="#">
+          <Link className="navbar-brand" href="/">
             {/* <img src={logo}/> */}
+            My Indore Guide
           </Link>
           <button
             className="navbar-toggler"
@@ -56,10 +62,10 @@ const Navbar = () => {
                 Search
               </button>
             </form> */}
-            <Link to= "/sign">
+            <Link to="/login">
               {" "}
-              <button  className="btn btn-success p-2" type="submit">
-                Sign-up
+              <button onClick={handleLogout} className="btn btn-success p-2" type="submit">
+                {localStorage.getItem("token") ? `Logout`:`Login`}
               </button>
             </Link>
           </div>

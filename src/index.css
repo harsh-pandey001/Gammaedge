@@ -4,3 +4,18 @@
 	box-sizing: border-box;
 	background-color: #0000;
 }
+
+/* Webkit-based browsers (Chrome, Safari) */
+::-webkit-scrollbar {
+    display: none;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    background-color: transparent;
+    /* Thumb color (transparent makes it invisible) */
+  }
+  
+  ::-webkit-scrollbar-track {
+    background-color: transparent;
+    /* Track color (transparent makes it invisible) */
+  }

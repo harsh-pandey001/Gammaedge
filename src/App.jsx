@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -14,23 +14,37 @@ import Login from "./Pages/Credentials/Login/Login";
 import Food from "./Pages/Food/Food";
 import Destination from "./Pages/Destination/Destination";
 import Packages from "./Pages/Packages/Packages";
+import { useState } from "react";
+import Alert from "./components/Shared/Alert/Alert";
+import FoodCategory from "./Pages/FoodCategory/FoodCategory";
 
 
 function App() {
+  
+  const [alert, setAlert] = useState(null);
+  const showalert = (message, type) => {
+    setAlert({
+      msg: message,
+      type: type,
+    });
+    setTimeout(() => {
+      setAlert(null);
+    }, 2000);
+  };
+
   return (
     <>
-    {/* <Signup/> */}
-    {/* <Login/> */}
       <BrowserRouter>
-        <Navbar/>
-  
+      <Navbar/>
+        <Alert alert={alert} />
         <Routes>
           <Route path="/" element={<Home/>} />
-          <Route path="/food" element={<Food/>} />
-          <Route path="/destination" element={<Destination/>} />
-          <Route path="/packages" element={<Packages/>} />
-          <Route path="/sign" element={<Signup/>} />
-          <Route path="/login" element={<Login/>} />        
+          <Route path="/food" element={<Food showalert = {showalert}/>} />
+          <Route path="/destination" element={<Destination showalert = {showalert}/>} />
+          <Route path="/packages" element={<Packages showalert = {showalert}/>} />
+          <Route path="/sign" element={<Signup showalert = {showalert}/>} />
+          <Route path="/login" element={<Login showalert = {showalert} />} />        
+          <Route path="/foodcategory" element={<FoodCategory/>} />        
         </Routes>
       </BrowserRouter>
     </>

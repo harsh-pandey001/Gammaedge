@@ -22,17 +22,15 @@ router.post("/create", async (req, res) => {
   });
 
   let complete = await newuser.save();
-  res.json({ complete });
+  // res.json({ complete });
 });
 
 // Route 2 : Login   end point
-router.post( 
-  "/login",
+router.post("/login",
   [
     body("email", "Enter a valid E-mail").isEmail(),
     body("password", "Password cannot be blank").exists(),
   ],
-
   async (req, res) => {
     // if there are errors, return bad request and errors
     let success = false;

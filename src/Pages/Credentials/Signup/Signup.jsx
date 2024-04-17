@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import style from "./signup.module.css";
+import { useNavigate } from "react-router-dom";
 
-const Signup = () => {
+
+const Signup = (props) => {
+
+let history = useNavigate();
   const [credentials, setCredentials] = useState({
     name: "",
     num: "",
@@ -32,7 +36,7 @@ const Signup = () => {
       }),
     });
     const json = await response.json();
-    console.log(json);
+    history("/")
   };
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });

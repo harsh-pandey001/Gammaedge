@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import style from "./login.module.css";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 
 const Login = (props) => {
@@ -26,12 +26,12 @@ let history = useNavigate()
     if (json.success) {
       //Save the auth token and redirect
       localStorage.setItem("token", json.authtoken);
-      // props.showalert("Logged in  Successfully","success");
-      alert("Logged in  Successfully", json.authtoken);
+      props.showalert("Logged in  Successfully","success");
+      // alert("Logged in  Successfully", json.authtoken);
       history("/")
     } else {
-      // props.showalert("Invalid Details", "danger");
-      alert("invalid credentials");
+      props.showalert("Invalid Details", "danger");
+      // alert("invalid credentials");
     }
   };
   const onChange = (e) => {
@@ -74,7 +74,9 @@ let history = useNavigate()
             />
           </form>
           <div className={style.social_account_container}>
-            <span className={style.title}>Or Log in with</span>
+            <span className={style.title}>Or</span>
+            <span className={style.title}><Link to="/sign">Sign Up</Link></span>
+            <span className={style.title}>Log in with</span>
             <div className={style.social_accounts}>
               <button className={`${style.social_button} ${style.google}`}>
                 <svg viewBox="0 0 488 512" height="1em" className={style.svg}>
