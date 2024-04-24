@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import "./navbar.css";
 import { Link, useNavigate } from "react-router-dom";
-import logo from "../../../assets/Logo.png";
+import logo from "../../../assets/Logo2.png";
 
 const Navbar = () => {
   let history = useNavigate();
@@ -14,8 +14,7 @@ const Navbar = () => {
       <nav className="navbar navbar-expand-lg navbar-light">
         <div className="container-fluid">
           <Link className="navbar-brand" href="/">
-            {/* <img src={logo}/> */}
-            My Indore Guide
+            <img src={logo}/>
           </Link>
           <button
             className="navbar-toggler"
@@ -64,7 +63,7 @@ const Navbar = () => {
             </form> */}
             <Link to="/login">
               {" "}
-              <button onClick={handleLogout} className="btn btn-success p-2" type="submit">
+              <button onClick={handleLogout} className="btn btn-info" type="submit"  style={{padding: "0.5rem 1.5rem", color:"#fff"}}>
                 {localStorage.getItem("token") ? `Logout`:`Login`}
               </button>
             </Link>

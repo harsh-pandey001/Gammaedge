@@ -1,26 +1,22 @@
 import React from "react";
-import style from "./home.module.css";
 import "../../App.css";
+import"./home.module.css";
 import Swiper2 from "../../components/home/swiper/Swiper2";
 import Navbar from "../../components/Shared/navbar/Navbar";
-
-// import { Button } from 'bootstrap'
-
 const Home = () => {
   return (
     <>
-      <div className={style.container}>
-  
+      <div>
         <main className="cover-page" id="hero">
           <section className="wrapped-page">
             <div className="item-center">
               <h1>My Indore Guide</h1>
-              <h3>Tours | Travel | Guide</h3>
-              <button className="btn btn-success">Explore More</button>
+              <h3 style={{color:"#ffffff"}}>Tours | Travel | Guide</h3>
+              <button  style={{  padding: "0.5rem 2.5rem", margin:"2rem 0"}}  className="btn btn-outline-info">Explore More</button>
             </div>
           </section>
         </main>
-        <div className={style.sectionDest}>
+        <div className="sectionDest">
         <h2>Explore India</h2>
         <p>These popular destinations have a lot to offer</p>
         <Swiper2 /></div>

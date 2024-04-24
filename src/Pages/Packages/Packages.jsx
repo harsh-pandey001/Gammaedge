@@ -13,148 +13,146 @@ import imgCard8 from "../../assets/Destination6.jpg";
 import imgCard9 from "../../assets/Destination2.jpg";
 import imgBarobaybay from "../../assets/Destination3.png";
 import { useNavigate } from "react-router-dom";
+import PackCard from "../../components/Packages/PackCard";
 
-const tours = [
-  {
-    id: 1,
-    category: ["resort", "honeymoon"],
-    img: imgCard1,
-    alt: "Crecent",
-    title: "Water Park",
-    subtitle: "Resort",
-  },
-  {
-    id: 2,
-    category: ["beach", "mountain"],
-    img: imgCard2,
-    alt: "lorem ipsum",
-    title: "ipsum",
-    subtitle: "Carles, Iloilo",
-  },
-  {
-    id: 3,
-    category: ["resort", "honeymoon"],
-    img: imgCard3,
-    alt: "lorem ipsum",
-    title: "dolor sit",
-    subtitle: " amet consectetur",
-  },
-  {
-    id: 4,
-    category: ["climbing", "mountain"],
-    img: imgCard4,
-    alt: "exercitationem officiis",
-    title: "amet",
-    subtitle: "voluptates",
-  },
-  {
-    id: 5,
-    category: ["resort", "honeymoon", "beach"],
-    img: imgCard5,
-    alt: "blah blah",
-    title: "Koro Sun Resort & Rainforest Spa",
-    subtitle: "Vanua Levu, Fiji",
-  },
-  {
-    id: 6,
-    category: ["climbing", "mountain"],
-    img: imgCard6,
-    alt: "blah blah",
-    title: "Pi Shan",
-    subtitle: "Yangshuo China",
-  },
-  {
-    id: 7,
-    category: ["beach", "climbing"],
-    img: imgCard7,
-    alt: "blah blah",
-    title: "El-Nido",
-    subtitle: "Palawan",
-  },
-  {
-    id: 8,
-    category: ["honeymoon", "beach", "resort"],
-    img: imgCard8,
-    alt: "blah blah",
-    title: "Shangri-La’s Boracay Resort and Spa",
-    subtitle: "Boracay Resort",
-  },
-  {
-    id: 9,
-    category: ["beach", "resort"],
-    img: imgCard9,
-    alt: "blah blah",
-    title: "HUMANA Island Resort & Spa",
-    subtitle: "Palawan",
-  },
-  {
-    id: 10,
-    category: ["camping", "beach"],
-    img: imgBarobaybay,
-    alt: "camping in the lake",
-    title: "Barobaybay Camp Site",
-    subtitle: "Barobaybay, Lavezares N. Samar",
-  },
-];
-const itemCategories = [
-  "all",
-  "beach",
-  "mountain",
-  "resort",
-  "climbing",
-  "camping",
-  "honeymoon",
-];
+// const tours = [
+//   {
+//     id: 1,
+//     category: ["resort", "honeymoon"],
+//     img: imgCard1,
+//     alt: "Crecent",
+//     title: "Water Park",
+//     subtitle: "Resort",
+//   },
+//   {
+//     id: 2,
+//     category: ["beach", "mountain"],
+//     img: imgCard2,
+//     alt: "lorem ipsum",
+//     title: "ipsum",
+//     subtitle: "Carles, Iloilo",
+//   },
+//   {
+//     id: 3,
+//     category: ["resort", "honeymoon"],
+//     img: imgCard3,
+//     alt: "lorem ipsum",
+//     title: "dolor sit",
+//     subtitle: " amet consectetur",
+//   },
+//   {
+//     id: 4,
+//     category: ["climbing", "mountain"],
+//     img: imgCard4,
+//     alt: "exercitationem officiis",
+//     title: "amet",
+//     subtitle: "voluptates",
+//   },
+//   {
+//     id: 5,
+//     category: ["resort", "honeymoon", "beach"],
+//     img: imgCard5,
+//     alt: "blah blah",
+//     title: "Koro Sun Resort & Rainforest Spa",
+//     subtitle: "Vanua Levu, Fiji",
+//   },
+//   {
+//     id: 6,
+//     category: ["climbing", "mountain"],
+//     img: imgCard6,
+//     alt: "blah blah",
+//     title: "Pi Shan",
+//     subtitle: "Yangshuo China",
+//   },
+//   {
+//     id: 7,
+//     category: ["beach", "climbing"],
+//     img: imgCard7,
+//     alt: "blah blah",
+//     title: "El-Nido",
+//     subtitle: "Palawan",
+//   },
+//   {
+//     id: 8,
+//     category: ["honeymoon", "beach", "resort"],
+//     img: imgCard8,
+//     alt: "blah blah",
+//     title: "Shangri-La’s Boracay Resort and Spa",
+//     subtitle: "Boracay Resort",
+//   },
+//   {
+//     id: 9,
+//     category: ["beach", "resort"],
+//     img: imgCard9,
+//     alt: "blah blah",
+//     title: "HUMANA Island Resort & Spa",
+//     subtitle: "Palawan",
+//   },
+//   {
+//     id: 10,
+//     category: ["camping", "beach"],
+//     img: imgBarobaybay,
+//     alt: "camping in the lake",
+//     title: "Barobaybay Camp Site",
+//     subtitle: "Barobaybay, Lavezares N. Samar",
+//   },
+// ];
+// const itemCategories = [
+//   "all",
+//   "beach",
+//   "mountain",
+//   "resort",
+//   "climbing",
+//   "camping",
+//   "honeymoon",
+// ];
 
 const Packages = (props) => {
-
   let history = useNavigate();
   useEffect(() => {
     if (!localStorage.getItem("token")) {
       props.showalert("Login to access all features", "info");
       history("/login");
-    } 
+    }
     // eslint-disable-next-line
   }, []);
 
+  // const [cards, setCards] = useState([]);
+  // const [category, setCategory] = useState("all");
+  // const [query, setQuery] = useState("");
+  // const [searchResults, setSearchResults] = useState([]);
+  // const [showResults, setShowResults] = useState(false);
+  // const [searchClicked, setSearchClicked] = useState(false);
 
-  const [cards, setCards] = useState([]);
-  const [category, setCategory] = useState("all");
-  const [query, setQuery] = useState("");
-  const [searchResults, setSearchResults] = useState([]);
-  const [showResults, setShowResults] = useState(false);
-  const [searchClicked, setSearchClicked] = useState(false);
- 
- 
   // Function to perform search
-  const search = (query) => {
-    return tours.filter((item) => {
-      return item.category.some((category) =>
-        category.toLowerCase().includes(query.toLowerCase())
-      );
-    });
-  };
-  const handleInputChange = (e) => {
-    const inputValue = e.target.value;
-    setQuery(inputValue);
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    const trimmedQuery = query.trim();
-    if (trimmedQuery.length > 0 && /\S/.test(trimmedQuery)) {
-      const results = search(trimmedQuery);
-      setSearchResults(results);
-      setShowResults(true);
-      setSearchClicked(true);
-    } else {
-      setSearchResults([]);
-      setShowResults(false);
-    }
-  };
+  // const search = (query) => {
+  //   return tours.filter((item) => {
+  //     return item.category.some((category) =>
+  //       category.toLowerCase().includes(query.toLowerCase())
+  //     );
+  //   });
+  // };
+  // const handleInputChange = (e) => {
+  //   const inputValue = e.target.value;
+  //   setQuery(inputValue);
+  // };
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+  //   const trimmedQuery = query.trim();
+  //   if (trimmedQuery.length > 0 && /\S/.test(trimmedQuery)) {
+  //     const results = search(trimmedQuery);
+  //     setSearchResults(results);
+  //     setShowResults(true);
+  //     setSearchClicked(true);
+  //   } else {
+  //     setSearchResults([]);
+  //     setShowResults(false);
+  //   }
+  // };
 
-  useEffect(() => {
-    setCards(tours);
-  }, []);
+  // useEffect(() => {
+  //   setCards(tours);
+  // }, []);
   return (
     <>
       <form
@@ -225,6 +223,7 @@ const Packages = (props) => {
           </section>
         </Container>
       </div>
+      <PackCard />
     </>
   );
 };
