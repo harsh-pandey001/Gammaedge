@@ -25,10 +25,11 @@
 }
 
 #hero {
-  background: url("./assets/backgroundImage.jpeg") center center;
+  /* background: url("./assets/backgroundImage.jpeg") center center; */
   background-size: cover;
   /* background-attachment: fixed; */
   /* color: white; */
+  background-image:url("./assets/backgroundImage.jpeg");
 }
 
 #hero h1 {
