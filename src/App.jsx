@@ -19,6 +19,7 @@ import Alert from "./components/Shared/Alert/Alert";
 import FoodCategory from "./Pages/FoodCategory/FoodCategory";
 import Maps from "./components/Shared/GoogleMap/Maps";
 import Footer from "./components/Shared/Footer/Footer";
+import PackageDetails from "./Pages/PackageDetails/PackageDetails";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -52,6 +53,7 @@ function App() {
           <Route path="/login" element={<Login showalert={showalert} />} />
           <Route path="/foodcategory" element={<FoodCategory />} />
           <Route path="/Map" element={<Maps />} />
+          <Route path="/packagedetails" element={<PackageDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

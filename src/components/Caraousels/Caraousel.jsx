@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { IonIcon } from "@ionic/react"; // Assuming you have imported Ionicons as React components
-import "./caraousel.css"; // Import any CSS file for styling if needed
-
+// import "./caraousel.css"; 
 function Caraousel() {
   const [items, setItems] = useState([
     {

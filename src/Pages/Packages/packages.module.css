@@ -1,6 +1,7 @@
-.searchResult{
-    display: grid;
-    margin: auto;
-    grid-template-columns: repeat(3,1fr);
-    
+.container h1{
+    text-align: center;
+    font-family: "Poppins", sans-serif;
+    margin: 3rem auto;
+    font-size: 50px;
+    font-weight: 600;
 }

@@ -1,41 +1,40 @@
-import React, { useRef, useState } from "react";
-import { Swiper, SwiperSlide } from "swiper/react";
+import React from "react";
+import { Swiper } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Pagination } from "swiper/modules";
-import style from "./Swiper2.module.css"
+import style from "./Swiper2.module.css";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 import FoodCard from "../../FoodCategory/FoodCard/FoodCard";
-import { Navigation } from 'swiper/modules';
-import 'swiper/css/navigation';
-const Swiper2 = () => {
 
-  // const swiper = new Swiper('.swiper', {
-  //   navigation: {
-  //     nextEl: '.swiper-button-next',
-  //     prevEl: '.swiper-button-prev',
-  //   },
-  // });
-
-  return (
-    <div className={style.container} >
-      <Swiper
-        spaceBetween={50}
-        slidesPerView={4}
-        onSlideChange={() => console.log("slide change")}
-        onSwiper={(swiper) => console.log(swiper)}
-        navigation={true}
-        modules={[Navigation]}
-      >
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-        <SwiperSlide><FoodCard/></SwiperSlide>
-      </Swiper>
-    </div>
+const Swiper2 = (props) => {
+  return (<></>
+    // <div className={style.SwipperContainer}>
+    //   <Swiper
+    //     spaceBetween={50}
+    //     slidesPerView={4}
+    //     onSlideChange={() => console.log("slide change")}
+    //     onSwiper={(swiper) => console.log(swiper)}
+    //     navigation={true}
+    //     autoplay={{
+    //       delay: 2000,
+    //       disableOnInteraction: false,
+    //     }}
+    //     modules={[Autoplay, Pagination, Navigation]}
+    //   >
+    //     {detail1.map((element, key) => (
+    //       <SwiperSlide key={key}>
+    //         {" "}
+    //         {/* Adding key prop here */}
+    //         <FoodCard
+    //           images={element.src}
+    //           head={element.name}
+    //           summary={element.details}
+    //         />
+    //       </SwiperSlide>
+    //     ))}
+    //   </Swiper>
+    // </div>
   );
 };
 

@@ -2,12 +2,12 @@ import React from "react";
 import style from "./foodcard.module.css";
 import img from "../../../assets/demoimg.jpg";
 
-const FoodCard = () => {
+const FoodCard = (props) => {
   return (
     <div className={style.container}>
-      <div className={style.imgContainer}><img src={img} alt="" /></div>
-      <h2>Lorem, ipsum dolor.</h2>
-      <p>Lorem ipsum dolor sit amet consectetur.</p>
+      <div className={style.imgContainer}><img src={props.images} alt="" /></div>
+      <h2>{props.head}</h2>
+      <p>{props.summary}</p>
     </div>
   );
 };

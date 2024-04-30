@@ -2,9 +2,6 @@ import React, { useState, useEffect } from "react";
 import style from "./packages.module.css";
 import { useNavigate } from "react-router-dom";
 import PackCard from "../../components/Packages/PackCard";
-import Caraousel from "../../components/Caraousels/Caraousel";
-
-
 
 const Packages = (props) => {
   let history = useNavigate();
@@ -18,8 +15,10 @@ const Packages = (props) => {
 
   return (
     <>
-      {/* <PackCard /> */}
-      <Caraousel/>
+      <div className={style.container}>
+        <h1>Tour Packages in Indore</h1>
+        <PackCard />
+      </div>
     </>
   );
 };

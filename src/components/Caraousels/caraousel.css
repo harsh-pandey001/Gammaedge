@@ -9,6 +9,8 @@
 .slider li{
     background-image: url("../../assets/backgroundImage.jpeg");
 }
+
+
 main {
     position: relative;
     width: 100%;

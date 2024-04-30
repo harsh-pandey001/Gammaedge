@@ -34,3 +34,9 @@
     border-radius: 2rem;
     width: 100%;
 }
+
+.searchResult{
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3,1fr);   
+}

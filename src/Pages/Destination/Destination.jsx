@@ -24,38 +24,34 @@ import imgBarobaybay from "../../assets/Destination3.png";
 import { useNavigate } from "react-router-dom";
 import style from "./destination.module.css";
 
+
 const items = [
   {
     src: resort,
-    // altText: "",
     caption: "Crecent Waterpark",
     details:
       "Crescent Water Park is a popular recreational destination in Indore, Madhya Pradesh. The water park is situated amidst lush green surroundings and offers a refreshing break from the hustle and bustle of city life. It is an ideal place for families and friends to spend a fun-filled day together.",
   },
   {
     src: gulp,
-    // altText: "Slide 2",
     caption: "Patalpani",
     details:
       "Patalpani is known for the beautiful Patalpani waterfall with a height of approximately 300 feet situated on the Indore – Khandwa train route. Legend has it that the depth of the water is unknown and it goes as deep as the underground world (patal). This place is also a famous trekking spot.",
   },
   {
     src: camp,
-    // altText: "Slide 3",
     caption: "Khajrana Mandir",
     details:
       "Khajrana Ganesh Temple is a religious spot which is a popular name among devotees who believe that whoever comes to this temple with a wish never goes back disappointed. The temple comprises a Ganesha statue & several smaller temples which are dedicated to the other deities.",
   },
   {
     src: beach,
-    // altText: "Slide 4",
     caption: "Chappan",
     details:
       "Chappan Dukan (Chhappan Dukan/56 Dukan) is a food and shopping Street located in Indore, Madhya Pradesh, India. It is known for its active street food scene and variety of shops, establishing itself as a notable landmark for residents and visitors alike.",
   },
   {
     src: mountain,
-    // altText: "Slide 5",
     caption: "Maheshwar",
     details:
       "Maheshwar is a town, near Khargone city in Khargone district of Madhya Pradesh state, in central India. It is located on State Highway-38,13.5 km east of National Highway 3 and 91 km from Indore, the commercial capital of the state. The Town lies on the north bank of the Narmada River",

@@ -1,10 +1,12 @@
 const User = require("../model/user");
+const Dest = require("../model/destination");
 const express = require("express");
 const router = express.Router();
 const { body, validationResult } = require("express-validator");
 const bcrypt = require("bcryptjs");
 const JWT_SECRET = "Harshisgoodboy";
-var jwt = require('jsonwebtoken');
+var jwt = require("jsonwebtoken");
+// import paymentController from "./payment.controller";
 
 //route :1 For signup end point
 router.post("/create", async (req, res) => {
@@ -25,8 +27,10 @@ router.post("/create", async (req, res) => {
   // res.json({ complete });
 });
 
+
 // Route 2 : Login   end point
-router.post("/login",
+router.post(
+  "/login",
   [
     body("email", "Enter a valid E-mail").isEmail(),
     body("password", "Password cannot be blank").exists(),
@@ -70,9 +74,7 @@ router.post("/login",
   }
 );
 
-//Routes : 3  
-router.get("/search"
-
-)
+//Routes : 3
+// router.route("/orders").post(paymentController.orderCreate);s
 
 module.exports = router;

@@ -1,86 +1,53 @@
-import React from 'react'
-import style from "./packcard.module.css"
+import React from "react";
+import style from "./packcard.module.css";
+import img1 from "../../assets/Destination3.png"
+import data from "./../../Caraousel.json"
+import { Link } from "react-router-dom";
 
-
-const PackCard = () => {
+const PackCard = (props) => {
   return (
     <div>
       <section className={style.wrapper}>
-    <div className={style.containerFostrap}>
-        <div className="content">
+        <div className={style.containerFostrap}>
+          <div className="content">
             <div className="container">
-                <div className="row">
+              <div className="row">
+                {
+                  data.map((element,key)=>(
                     <div className="col-xs-12 col-sm-4">
-                        <div className={style.card}>
-                            <a className={style.imgCard} href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                            <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
-                          </a>
-                            <div className={style.cardContent}>
-                                <h4 className={style.cardTitle}>
-                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
-                                  </a>
-                                </h4>
-                                <p className="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                                </p>
-                            </div>
-                            <div className={style.cardReadMore}>
-                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" className="btn btn-link btn-block">
-                                    Read More
-                                </a>
-                            </div>
+                    <div className={style.card}>
+                      <a className={style.imgCard} href="/">
+                        <img src={img1} />
+                      </a>
+                      <div className={style.cardContent}>
+                        <h4 className={style.cardTitle}>
+                          <Link to={`/packagedetails/id:${element.ID}`}>{element.Packname}</Link>
+                        </h4>
+                        <div>
+                        <p className="">
+                        {element.description}
+                        </p>
+                        <p className="">
+                         {element.price} /- only
+                        </p>
                         </div>
+                      </div>
+                      <div className={style.cardReadMore}>
+                        <Link to={`/packagedetails/id:${element.ID}`} className="btn btn-link btn-block">
+                          Buy
+                        </Link>
+                      </div>
                     </div>
-                    <div className="col-xs-12 col-sm-4">
-                        <div className={style.card}>
-                            <a className={style.imgCard} href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                            <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
-                          </a>
-                            <div className={style.cardContent}>
-                                <h4 className={style.cardTitle}>
-                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
-                                  </a>
-                                </h4>
-                                <p className="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                                </p>
-                            </div>
-                            <div className={style.cardReadMore}>
-                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" className="btn btn-link btn-block">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    <div className="col-xs-12 col-sm-4">
-                        <div className={style.card}>
-                            <a className={style.imgCard} href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html">
-                            <img src="https://1.bp.blogspot.com/-Bii3S69BdjQ/VtdOpIi4aoI/AAAAAAAABlk/F0z23Yr59f0/s640/cover.jpg" />
-                          </a>
-                            <div className={style.cardContent}>
-                                <h4 className={style.cardTitle}>
-                                    <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html"> Bootstrap 3 Carousel FadeIn Out Effect
-                                  </a>
-                                </h4>
-                                <p className="">
-                                    Tutorial to make a carousel bootstrap by adding more wonderful effect fadein ...
-                                </p>
-                            </div>
-                            <div className={style.cardReadMore}>
-                                <a href="http://www.fostrap.com/2016/03/bootstrap-3-carousel-fade-effect.html" className="btn btn-link btn-block">
-                                    Read More
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                   
-                </div>
+                  </div>
+                  ))
+                }
+              </div>
             </div>
+          </div>
         </div>
+      </section>
     </div>
-</section>
-    </div>
-  )
-}
+  );
+};
 
-export default PackCard
+export default PackCard;
