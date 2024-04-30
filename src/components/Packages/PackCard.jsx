@@ -14,14 +14,14 @@ const PackCard = (props) => {
               <div className="row">
                 {
                   data.map((element,key)=>(
-                    <div className="col-xs-12 col-sm-4">
+                    <div key={key} className="col-xs-12 col-sm-4">
                     <div className={style.card}>
-                      <a className={style.imgCard} href="/">
+                      <Link className={style.imgCard} to={`/packagedetails/${1}`}>
                         <img src={img1} />
-                      </a>
+                      </Link>
                       <div className={style.cardContent}>
                         <h4 className={style.cardTitle}>
-                          <Link to={`/packagedetails/id:${element.ID}`}>{element.Packname}</Link>
+                          <Link to={`/packagedetails/${1}`}>{element.Packname}</Link>
                         </h4>
                         <div>
                         <p className="">
@@ -33,7 +33,7 @@ const PackCard = (props) => {
                         </div>
                       </div>
                       <div className={style.cardReadMore}>
-                        <Link to={`/packagedetails/id:${element.ID}`} className="btn btn-link btn-block">
+                        <Link to={`/packagedetails/${1}`} className="btn btn-link btn-block">
                           Buy
                         </Link>
                       </div>

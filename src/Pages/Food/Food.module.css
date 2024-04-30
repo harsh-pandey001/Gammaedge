@@ -45,3 +45,8 @@
     transition: border-color .15s ease-in-out 0s, box-shadow .15s ease-in-out 0s;
     width: 100%;
 }
+.searchResult{
+    display: grid;
+    margin: auto;
+    grid-template-columns: repeat(3,1fr);   
+}

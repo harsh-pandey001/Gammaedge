@@ -1,50 +1,54 @@
 import React, { useState } from "react";
 import { IonIcon } from "@ionic/react"; // Assuming you have imported Ionicons as React components
-// import "./caraousel.css"; 
+import style from "./caraousel.module.css"
+import { useParams } from "react-router-dom";
+import jsonData from "../../Caraousel.json"
+
 function Caraousel() {
+
+  const  ID  = useParams();
+  const data = parseInt(ID.id)
+  
+  const packData = jsonData.filter((item) => item.ID == parseInt(data));
+  const Pack = packData.length > 0 ? packData[0] : null;
+
+
+  
+
   const [items, setItems] = useState([
     {
       id: 1,
-      backgroundImage:
-        "https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg",
-      title: '"Rajwada"',
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+      backgroundImage: Pack.images.ima1,
+      title: Pack.Packname,
+      description:Pack.description,
     },
     {
       id: 2,
-      backgroundImage:
-        "Rajwada",
-      title: '"Lossless Youths"',
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+      backgroundImage: Pack.images.ima1,
+      title: Pack.Packname,
+      description:Pack.description,
     },
     {
       id: 3,
-      backgroundImage:
-        "Rajwada",
-      title: '"Lossless Youths"',
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+      backgroundImage: Pack.images.ima1,
+      title: Pack.Packname,
+      description:Pack.description,
     },
     {
       id: 4,
-      backgroundImage:
-        "Rajwada",
-      title: '"Lossless Youths"',
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+      backgroundImage: Pack.images.ima1,
+      title: Pack.Packname,
+      description:Pack.description,
     },
     {
       id: 5,
-      backgroundImage:
-        "https://cdn.mos.cms.futurecdn.net/dP3N4qnEZ4tCTCLq59iysd.jpg",
-      title: '"Rajwada"',
-      description:
-        "Lorem ipsum, dolor sit amet consectetur adipisicing elit. Tempore fuga voluptatum, iure corporis inventore praesentium nisi. Id laboriosam ipsam enim.",
+      backgroundImage: Pack.images.ima1,
+      title: Pack.Packname,
+      description:Pack.description,
     },
-    // Add other items similarly
+
   ]);
+
 
   const activate = (e) => {
     const slider = document.querySelector(".slider");
@@ -57,40 +61,40 @@ function Caraousel() {
       setItems([lastItem, ...itemsCopy]);
     }
   };
-
+  // /home/my/Downloads/new Folder/Gammaedge/assets
   return (
-    <div className="caru">
-      <main>
-        <ul className="slider">
+    <div className={style.caru}>
+      <div className={style.main}>
+        <ul className={style.slider}>
           {items.map((item) => (
             <li
               key={item.id}
-              className="item"
+              className={style.item}
               style={{
-                backgroundImage: `url("./assets/backgroundImage.jpeg");`,
+                backgroundImage:`url("${process.env.PUBLIC_URL+item.backgroundImage}")`
               }}
             >
-              <div className="content">
-                <h2 className="title">{item.title}</h2>
-                <p className="description">{item.description}</p>
+              <div className={style.content}>
+                <h2 className={style.title}>{item.title}</h2>
+                <p className={style.title}>{item.description}</p>
                 <button>Read More</button>
               </div>
             </li>
           ))}
         </ul>
-        <nav className="nav">
+        <nav className={style.nav}>
           <IonIcon
-            className="btn prev"
+            className={`${style.btn} prev`}
             name="arrow-back-outline"
             onClick={activate}
           ></IonIcon>
           <IonIcon
-            className="btn next"
+            className={`${style.btn} next`}
             name="arrow-forward-outline"
             onClick={activate}
           ></IonIcon>
         </nav>
-      </main>
+      </div>
     </div>
   );
 }

@@ -4,7 +4,7 @@ import Caraousel from "../../components/Caraousels/Caraousel";
 const PackageDetails = () => {
   return (
     <div>
-      {/* <Caraousel /> */}
+      <Caraousel />
     </div>
   );
 };

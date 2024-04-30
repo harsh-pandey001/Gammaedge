@@ -53,7 +53,7 @@ function App() {
           <Route path="/login" element={<Login showalert={showalert} />} />
           <Route path="/foodcategory" element={<FoodCategory />} />
           <Route path="/Map" element={<Maps />} />
-          <Route path="/packagedetails" element={<PackageDetails />} />
+          <Route path="/packagedetails/:id" element={<PackageDetails />} />
         </Routes>
         <Footer />
       </BrowserRouter>

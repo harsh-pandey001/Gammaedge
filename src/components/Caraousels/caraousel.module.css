@@ -6,12 +6,12 @@
     overflow: hidden;
 }
 
-.slider li{
+/* .slider li{
     background-image: url("../../assets/backgroundImage.jpeg");
-}
+} */
 
 
-main {
+.main {
     position: relative;
     width: 100%;
     height: 100%;

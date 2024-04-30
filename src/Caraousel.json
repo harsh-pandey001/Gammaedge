@@ -5,13 +5,14 @@
         "description": "Maheshwar is a town, near Khargone city in Khargone district of Madhya Pradesh state, in central India.",
         "images": {
             "profile": "../../assets/Destination3.png",
-            "ima1": "",
-            "ima2": "",
-            "ima3": "",
-            "ima4": "",
-            "ima5": ""
+            "ima1": "/caraousel/pack1/backgroundImage.jpeg",
+            "ima2": "/caraousel/pack1/backgroundImage.jpeg",
+            "ima3": "/caraousel/pack1/backgroundImage.jpeg",
+            "ima4": "/caraousel/pack1/backgroundImage.jpeg",
+            "ima5": "/caraousel/pack1/backgroundImage.jpeg"
         },
-        "price": "5000"
+        "price": "5000",
+        "QR" : ""
     },
     {
         "ID": 2,
@@ -25,10 +26,11 @@
             "ima4": "",
             "ima5": ""
         },
-        "price": "5000"
+        "price": "5000",
+        "QR" : ""
     },
     {
-        "ID": 2,
+        "ID": 3,
         "Packname": "Maheshwar",
         "description": "Maheshwar is a town, near Khargone city in Khargone district of Madhya Pradesh state, in central India.",
         "images": {
@@ -39,7 +41,8 @@
             "ima4": "",
             "ima5": ""
         },
-        "price": "5000"
+        "price": "5000",
+        "QR" : ""
     }
 
 ]
