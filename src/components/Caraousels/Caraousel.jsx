@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { IonIcon } from "@ionic/react"; // Assuming you have imported Ionicons as React components
+import { IonIcon } from "@ionic/react"; 
 import style from "./caraousel.module.css"
 import { useParams } from "react-router-dom";
 import jsonData from "../../Caraousel.json"
@@ -8,13 +8,11 @@ function Caraousel() {
 
   const  ID  = useParams();
   const data = parseInt(ID.id)
-  
   const packData = jsonData.filter((item) => item.ID == parseInt(data));
   const Pack = packData.length > 0 ? packData[0] : null;
 
 
   
-
   const [items, setItems] = useState([
     {
       id: 1,
@@ -61,7 +59,7 @@ function Caraousel() {
       setItems([lastItem, ...itemsCopy]);
     }
   };
-  // /home/my/Downloads/new Folder/Gammaedge/assets
+
   return (
     <div className={style.caru}>
       <div className={style.main}>
@@ -77,7 +75,7 @@ function Caraousel() {
               <div className={style.content}>
                 <h2 className={style.title}>{item.title}</h2>
                 <p className={style.title}>{item.description}</p>
-                <button>Read More</button>
+                <button>Book Now</button>
               </div>
             </li>
           ))}

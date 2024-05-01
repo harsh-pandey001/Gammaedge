@@ -17,7 +17,7 @@ import Packages from "./Pages/Packages/Packages";
 import { useState } from "react";
 import Alert from "./components/Shared/Alert/Alert";
 import FoodCategory from "./Pages/FoodCategory/FoodCategory";
-import Maps from "./components/Shared/GoogleMap/Maps";
+// import Maps from "./components/Shared/GoogleMap/Maps";
 import Footer from "./components/Shared/Footer/Footer";
 import PackageDetails from "./Pages/PackageDetails/PackageDetails";
 
@@ -39,7 +39,7 @@ function App() {
         <Navbar />
         <Alert alert={alert} />
         <Routes>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home />}  showalert={showalert}/>
           <Route path="/food" element={<Food showalert={showalert} />} />
           <Route
             path="/destination"
@@ -52,7 +52,7 @@ function App() {
           <Route path="/sign" element={<Signup showalert={showalert} />} />
           <Route path="/login" element={<Login showalert={showalert} />} />
           <Route path="/foodcategory" element={<FoodCategory />} />
-          <Route path="/Map" element={<Maps />} />
+          {/* <Route path="/Map" element={<Maps />} /> */}
           <Route path="/packagedetails/:id" element={<PackageDetails />} />
         </Routes>
         <Footer />

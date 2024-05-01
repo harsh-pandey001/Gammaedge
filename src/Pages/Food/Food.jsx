@@ -172,7 +172,7 @@ const Food = (props) => {
               <option value="sweets">Sweets</option>
             </select>
           </div>
-          <div className="sliderStateSubmit col-md-1  submit">
+          <div className="sliderStateSubmit col-md-1 mt-3 submit">
             <button type="submit" className="form-control btn btn-warning"><a href="#packageBody">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -193,7 +193,7 @@ const Food = (props) => {
       <div className="subComponent-lg" id="packageBody" >
         {showResults && (
           <div className={style.container1}>
-             <h1>Searched Items </h1>
+             <h1 style={{textAlign: "center"}}>Searched Items </h1>
             {searchResults.length === 0 ? (
               <p>No results found.</p>
             ) : (

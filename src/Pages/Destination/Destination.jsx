@@ -143,12 +143,12 @@ const tours = [
 
 const itemCategories = [
   "all",
-  "beach",
-  "mountain",
-  "resort",
-  "climbing",
-  "camping",
-  "honeymoon",
+  "Historical",
+  "Religious",
+  "Resorts",
+  "Natural",
+  "Shopping",
+  "Foodies",
 ];
 
 const Destination = (props) => {
@@ -282,7 +282,7 @@ const Destination = (props) => {
         <Container>
           <header className="headerTitle text-center">
             <h1>More To Explore</h1>
-            <p>A Great Collection of Our Tour Packages</p>
+            <p>Search places by the Category</p>
           </header>
           <section className="packageBody text-center">
             {itemCategories.map((badge, index) => (

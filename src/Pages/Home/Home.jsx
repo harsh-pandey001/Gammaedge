@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "../../App.css";
 import style from "./home.module.css";
 import Swiper2 from "../../components/home/swiper/Swiper2";
@@ -7,13 +7,13 @@ import img2 from "../../assets/Destination2.jpg";
 import img3 from "../../assets/Destination3.png";
 import img4 from "../../assets/Destination4.jpg";
 import img5 from "../../assets/Destination5.jpg";
-import { Swiper} from "swiper/react";
+import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
-import { Autoplay, Pagination, Navigation } from 'swiper/modules';
-import 'swiper/css/navigation';
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css/navigation";
 import FoodCard from "../../components/FoodCategory/FoodCard/FoodCard";
-
+import { useNavigate } from "react-router-dom";
 
 const detail1 = [
   {
@@ -46,10 +46,31 @@ const detail1 = [
     details:
       "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
   },
+  {
+    src: img3,
+    name: "lorem ipsume",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+  },
+  {
+    src: img,
+    name: "lorem ipsume",
+    details:
+      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+  },
 ];
 
-const Home = () => {
-  console.log(detail1);
+const Home = (props) => {
+  let history = useNavigate();
+  const handleClick = () => {
+    if (!localStorage.getItem("token")) {
+      props.showalert("Login to access all features", "info");
+      history("/login");
+    } else {
+      history("/destination");
+    }
+  };
+
   return (
     <>
       <div>
@@ -61,6 +82,7 @@ const Home = () => {
               <button
                 style={{ padding: "0.5rem 2.5rem", margin: "2rem 0" }}
                 className="btn btn-outline-info"
+                onClick={handleClick}
               >
                 Explore More
               </button>
@@ -72,10 +94,10 @@ const Home = () => {
           <p>These popular destinations have a lot to offer</p>
         </div>
 
-        {/* <div className={style.SwipperContainer}>
+        <div className={style.SwipperContainer}>
           <Swiper
-            spaceBetween={50}
-            slidesPerView={4}
+            spaceBetween={70}
+            slidesPerView={3}
             onSlideChange={() => console.log("slide change")}
             onSwiper={(swiper) => console.log(swiper)}
             navigation={true}
@@ -85,14 +107,17 @@ const Home = () => {
             }}
             modules={[Autoplay, Pagination, Navigation]}
           >
-            {detail1.map((element, key)=(
-         <SwiperSlide>
-          <FoodCard images = {element.src} head = {element.name}  summary =  {element.details}/>
-         </SwiperSlide>
-        ))}
+            {detail1.map((elements, key) => (
+              <SwiperSlide key={key}>
+                <FoodCard
+                  images={elements.src}
+                  head={elements.name}
+                  summary={elements.details}
+                />
+              </SwiperSlide>
+            ))}
           </Swiper>
-        </div> */}
-
+        </div>
       </div>
     </>
   );

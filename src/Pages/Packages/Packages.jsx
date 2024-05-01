@@ -2,6 +2,8 @@ import React, { useState, useEffect } from "react";
 import style from "./packages.module.css";
 import { useNavigate } from "react-router-dom";
 import PackCard from "../../components/Packages/PackCard";
+import GoogleMaps from "../../components/Shared/GoogleMap/GoogleMaps";
+// import GoogleMaps from "../../components/Shared/GoogleMap/GoogleMaps";
 
 const Packages = (props) => {
   let history = useNavigate();
@@ -19,6 +21,7 @@ const Packages = (props) => {
         <h1>Tour Packages in Indore</h1>
         <PackCard />
       </div>
+      <GoogleMaps/>
     </>
   );
 };

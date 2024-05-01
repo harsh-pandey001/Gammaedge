@@ -48,5 +48,8 @@
 .searchResult{
     display: grid;
     margin: auto;
-    grid-template-columns: repeat(3,1fr);   
-}
+    justify-items: center;
+    align-items: center;
+    justify-content: center;
+    grid-template-columns: repeat(3,1fr);
+}  
