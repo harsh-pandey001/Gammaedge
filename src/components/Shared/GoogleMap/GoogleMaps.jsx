@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { Loader } from '@googlemaps/js-api-loader';
 
-export default function GoogleMaps() {
+export default function GoogleMaps(props) {
 	const mapRef = useRef(null);
 	// 
 	useEffect(() => {
@@ -33,8 +33,8 @@ export default function GoogleMaps() {
 				navigator.geolocation.getCurrentPosition(
 					position => {
 						const userLocation = {
-							lat: 22.718055604414346,
-							lng: 75.85487157555893,
+							lat:  props.latitude,
+							lng: props.longitude,
 						};
 
 						// Center map at user's current location

@@ -20,6 +20,8 @@ import FoodCategory from "./Pages/FoodCategory/FoodCategory";
 // import Maps from "./components/Shared/GoogleMap/Maps";
 import Footer from "./components/Shared/Footer/Footer";
 import PackageDetails from "./Pages/PackageDetails/PackageDetails";
+import Navigations from "./Pages/Navigation/Navigations"
+import Payment from "./Pages/Payment/Payment";
 
 function App() {
   const [alert, setAlert] = useState(null);
@@ -52,7 +54,8 @@ function App() {
           <Route path="/sign" element={<Signup showalert={showalert} />} />
           <Route path="/login" element={<Login showalert={showalert} />} />
           <Route path="/foodcategory" element={<FoodCategory />} />
-          {/* <Route path="/Map" element={<Maps />} /> */}
+          <Route path="/navigations" element={<Navigations />} />
+          <Route path="/payment" element={<Payment />} />
           <Route path="/packagedetails/:id" element={<PackageDetails />} />
         </Routes>
         <Footer />
