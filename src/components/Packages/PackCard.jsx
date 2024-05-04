@@ -1,6 +1,7 @@
 import React from "react";
 import style from "./packcard.module.css";
 import img1 from "../../assets/Destination3.png"
+import pack1  from "../../assets/resort.jpg"
 import data from "./../../Caraousel.json"
 import { Link } from "react-router-dom";
 
@@ -17,7 +18,7 @@ const PackCard = (props) => {
                     <div key={key} className="col-xs-12 col-sm-4">
                     <div className={style.card}>
                       <Link className={style.imgCard} to={`/packagedetails/${1}`}>
-                        <img src={img1} />
+                        <img src={element.images.profile} />
                       </Link>
                       <div className={style.cardContent}>
                         <h4 className={style.cardTitle}>

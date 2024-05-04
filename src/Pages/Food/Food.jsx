@@ -1,15 +1,15 @@
 import React, { useEffect, useState } from "react";
 import style from "./Food.module.css";
 import { Link, useNavigate } from "react-router-dom";
-import imgCard1 from "../../assets/Destination7.jpeg";
-import imgCard2 from "../../assets/Destination2.jpg";
-import imgCard3 from "../../assets/Destination3.png";
-import imgCard4 from "../../assets/Destination4.jpg";
-import imgCard5 from "../../assets/Destination5.jpg";
-import imgCard6 from "../../assets/Destination6.jpg";
-import imgCard7 from "../../assets/Destination1.png";
-import imgCard8 from "../../assets/Destination6.jpg";
-import imgCard9 from "../../assets/Destination2.jpg";
+import imgCard1 from "../../assets/food/pohejalebi.jpeg";
+import imgCard2 from "../../assets/food/gadadu.jpeg";
+import imgCard3 from "../../assets/food/dalbati.jpeg";
+import imgCard4 from "../../assets/food/DahiBhalle.jpeg";
+import imgCard5 from "../../assets//food/sev.jpeg";
+import imgCard6 from "../../assets/food/sandwiches.jpeg";
+import imgCard7 from "../../assets/food/cholebhature.jpeg";
+import imgCard8 from "../../assets/food/KesarDudh.jpeg";
+import imgCard9 from "../../assets/food/sev.jpeg";
 import { Badge, CardColumns, Container, Row } from "reactstrap";
 import TourCard from "../../components/Packages/Tourcard";
 
@@ -211,8 +211,8 @@ const Food = (props) => {
         )}
         <Container>
           <header className="headerTitle text-center">
-            <h1>More To Explore</h1>
-            <p>A Great Collection of Our Tour Packages</p>
+            <h1>Flavors of Indore</h1>
+            <p>A Delicious Dive into Local Delicacies</p>
           </header>
           <section className="packageBody text-center">
             {itemCategories.map((badge, index) => (

@@ -18,7 +18,8 @@ let history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
+    history("/login")
+    props.showalert("Login with the Credential","success");
     const { name, num, nationality, gender, email, password } = credentials;
 
     const response = await fetch(`http://localhost:5000/form/signup/create`, {
@@ -36,7 +37,7 @@ let history = useNavigate();
       }),
     });
     const json = await response.json();
-    history("/")
+  
   };
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });

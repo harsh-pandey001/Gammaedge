@@ -84,7 +84,7 @@
 }
 
 .card-img, .card-img-bottom, .card-img-top {
-  height: 80%;
+  height: 30vh;
 }
 @media (min-width: 284px) {
   .card-columns {

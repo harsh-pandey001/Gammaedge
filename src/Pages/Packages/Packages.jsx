@@ -21,7 +21,6 @@ const Packages = (props) => {
         <h1>Tour Packages in Indore</h1>
         <PackCard />
       </div>
-      <GoogleMaps/>
     </>
   );
 };

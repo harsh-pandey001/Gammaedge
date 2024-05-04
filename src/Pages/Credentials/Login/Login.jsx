@@ -64,9 +64,9 @@ let history = useNavigate()
               value={credentials.password}
               onChange={onChange}
             />
-            <span className={style.forgot_password}>
+            {/* <span className={style.forgot_password}>
               <a href="#">Forgot Password ?</a>
-            </span>
+            </span> */}
             <input
               value="Log-In"
               type="submit"

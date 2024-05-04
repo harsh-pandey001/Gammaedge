@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { IonIcon } from "@ionic/react"; 
 import style from "./caraousel.module.css"
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import jsonData from "../../Caraousel.json"
 
 function Caraousel() {
@@ -22,25 +22,25 @@ function Caraousel() {
     },
     {
       id: 2,
-      backgroundImage: Pack.images.ima1,
+      backgroundImage: Pack.images.ima2,
       title: Pack.Packname,
       description:Pack.description,
     },
     {
       id: 3,
-      backgroundImage: Pack.images.ima1,
+      backgroundImage: Pack.images.ima3,
       title: Pack.Packname,
       description:Pack.description,
     },
     {
       id: 4,
-      backgroundImage: Pack.images.ima1,
+      backgroundImage: Pack.images.ima4,
       title: Pack.Packname,
       description:Pack.description,
     },
     {
       id: 5,
-      backgroundImage: Pack.images.ima1,
+      backgroundImage: Pack.images.ima5,
       title: Pack.Packname,
       description:Pack.description,
     },
@@ -75,7 +75,7 @@ function Caraousel() {
               <div className={style.content}>
                 <h2 className={style.title}>{item.title}</h2>
                 <p className={style.title}>{item.description}</p>
-                <button>Book Now</button>
+                <button> <Link style={{textDecoration :"none" , color : "#fff"}} to="/payment" >Book Now </Link></button>
               </div>
             </li>
           ))}

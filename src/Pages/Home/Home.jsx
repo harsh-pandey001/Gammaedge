@@ -1,12 +1,14 @@
 import React, { useEffect } from "react";
 import "../../App.css";
 import style from "./home.module.css";
-import Swiper2 from "../../components/home/swiper/Swiper2";
-import img from "../../assets/Destination1.png";
-import img2 from "../../assets/Destination2.jpg";
+
+import img from "../../assets/homeSlide/Gandhihall.jpeg";
 import img3 from "../../assets/Destination3.png";
-import img4 from "../../assets/Destination4.jpg";
-import img5 from "../../assets/Destination5.jpg";
+import img4 from "../../assets/homeSlide/sarafa_bazar.jpeg";
+import img5 from "../../assets/homeSlide/TournadoWaterpark.jpeg";
+import mahakal from "../../assets/homeSlide/Mahakaleswar.jpeg"
+import anna from "../../assets/homeSlide/Annapurna.jpeg"
+import tincha from "../../assets/homeSlide/tincha_fall.jpeg"
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/pagination";
@@ -18,45 +20,45 @@ import { useNavigate } from "react-router-dom";
 const detail1 = [
   {
     src: img,
-    name: "lorem ipsume",
+    name: "Gandhi Hall",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "Gandhi Hall is a prime example of British influence on Indian architecture in Indore.",
   },
   {
-    src: img2,
-    name: "lorem ipsume",
+    src: mahakal,
+    name: "Mahakaleshwar Ujjain",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "The idol of Mahakaleshwar is known to be dakshinamurti, facing the South. This is a unique feature, upheld by tantric tradition to be found only in Mahakaleshwar among the 12 jyotirlingas. ",
   },
   {
     src: img3,
-    name: "lorem ipsume",
+    name: "Chhatri bagh",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "One of the major attractions of the city, Chhatri Bagh houses chhatris or cenotaphs that are memorial canopies built in the memory of the Holkar rulers. ",
   },
   {
     src: img4,
-    name: "lorem ipsume",
+    name: "Sharafa Bazar",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "The Sarafa night market, or bazaar, is a wonderful & famous aspect of night life in Indore.",
   },
   {
     src: img5,
-    name: "lorem ipsume",
+    name: "Tournado WaterPark",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "With a reputation as a premier water park, Tornado Water Park & Resorts caters to a diverse audience seeking an escape from routine. ",
   },
   {
-    src: img3,
-    name: "lorem ipsume",
+    src: tincha,
+    name: "Tincha Waterfall",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "The water flow is highest immediately after the rainy season (usually after July). It goes almost dry in the summer season, and the stream is reduced to a trickle.",
   },
   {
-    src: img,
-    name: "lorem ipsume",
+    src: anna,
+    name: "Annapurna Mandir",
     details:
-      "Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, dolor.",
+      "The Annapurna Temple, besides being a place for pilgrimages is also a tourist attraction. Dedicated to Goddess Annapurna,",
   },
 ];
 

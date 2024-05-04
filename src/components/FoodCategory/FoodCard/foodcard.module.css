@@ -1,14 +1,16 @@
-.container{
+.container {}
 
-}
-
-.imgContainer{
+.imgContainer {
     /* width: 18.75rem;
     height: 18.75rem; */
     overflow: hidden;
 }
+
 .container img {
     width: 100%;
+   /* max-width: 280px; */
+    max-height: 280px;
+
     border-radius: 15px;
     transition: transform 0.3s ease-in-out;
 }

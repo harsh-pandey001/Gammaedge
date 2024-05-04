@@ -10,7 +10,8 @@ var jwt = require("jsonwebtoken");
 
 //route :1 For signup end point
 router.post("/create", async (req, res) => {
-  console.log("connected with backend", req.body);
+  // console.log("connected with backend", req.body);
+  console.log("connected with backend");
 
   const salt = await bcrypt.genSalt(10);
   const secPass = await bcrypt.hash(req.body.password, salt);
