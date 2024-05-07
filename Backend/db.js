@@ -1,9 +1,8 @@
 const mongoose = require("mongoose");
-require('dotenv').config();
 
 
 const connectDB = (props) => {
-  mongoose.connect(process.env.MONGODB_URI, {
+  mongoose.connect("mongodb://localhost:27017/MyIndoreGD", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   });
@@ -12,7 +11,6 @@ const connectDB = (props) => {
   // Event handling for successful connection
   mongoose.connection.on("connected", () => {
     console.log("Connected to MongoDB");
-    // console.log(process.env.MONGODB_URI)
   });
 
   // Event handling for connection error
