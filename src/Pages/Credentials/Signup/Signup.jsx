@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import style from "./signup.module.css";
 import { useNavigate } from "react-router-dom";
-
+const apiUrl = process.env.REACT_APP_API;
 
 const Signup = (props) => {
 
@@ -22,7 +22,7 @@ let history = useNavigate();
     props.showalert("Login with the Credential","success");
     const { name, num, nationality, gender, email, password } = credentials;
 
-    const response = await fetch(`http://localhost:5000/form/signup/create`, {
+    const response = await fetch(`${apiUrl}/form/signup/create`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",

@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import style from "./login.module.css";
 import { Link, useNavigate } from "react-router-dom";
+const apiUrl = process.env.REACT_APP_API;
 
 
 const Login = (props) => {
@@ -10,7 +11,8 @@ let history = useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    const response = await fetch(`http://localhost:5000/form/auth/login`, {
+    const response = await fetch(`${apiUrl}/form/auth/login`, {
+    // const response = await fetch(`http://localhost:5000/form/auth/login`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
