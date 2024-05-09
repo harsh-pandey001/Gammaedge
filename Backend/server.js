@@ -8,11 +8,13 @@ app.use(express.json());
 
 connectDB();
 app.use(
-  cors({
-    origin: ["https://my-indore-guide-fontend.vercel.app"],
-    methods: ["POST", "GET"],
-    credentials: true,
-  })
+  cors(
+  //   {
+  //   origin: ["https://my-indore-guide-fontend.vercel.app"],
+  //   methods: ["POST", "GET"],
+  //   credentials: true,
+  // }
+)
 );
 
 app.get("/", (req, res) => {
