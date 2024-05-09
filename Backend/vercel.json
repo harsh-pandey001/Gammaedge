@@ -1,5 +1,5 @@
 {
-    "name": "my-project",
+    "name": "MyIndoreGuide",
     "version": 2,
     "builds": [
       { "src": "api/*.js", "use": "@vercel/node" },

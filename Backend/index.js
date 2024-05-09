@@ -9,8 +9,19 @@ app.use(express.json())
 // app.use(express.static(path.join(__dirname, "public"))) //  middleware 
 
 connectDB(); 
-app.use(cors());
+app.use(cors(
 
+  {
+
+    origin : ["https://my-indore-guide-fontend.vercel.app/"],
+    methods : ["POST", "GET"],
+    credentials : true
+  }
+));
+
+app.get("/",(req, res)=>{
+res.json("hello");
+});
 
 app.use("/form/signup",router)
 app.use("/form/auth",router)
