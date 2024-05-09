@@ -20,6 +20,9 @@ app.use(
 app.get("/", (req, res) => {
   res.json("hello");
 });
+app.post("/form", (req, res) => {
+  res.json("hello");
+});
 
 app.use("/form/signup", router);
 app.use("/form/auth", router);
