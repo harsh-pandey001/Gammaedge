@@ -13,8 +13,8 @@ app.use(cors(
 
   {
 
-    origin : ["https://my-indore-guide-fontend.vercel.app/"],
-    methods : ["POST", "GET"],
+    origin : ["https://my-indore-guide-fontend.vercel.app"],
+    methods : ["POST","GET"],
     credentials : true
   }
 ));
