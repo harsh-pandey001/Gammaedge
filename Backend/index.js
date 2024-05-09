@@ -21,8 +21,8 @@ app.use(
 app.get("/", (req, res) => {
   res.json("hello");
 });
-app.post("/form", (req, res) => {
-  res.json("hello");
+app.get("/form", (req, res) => {
+  res.json("from");
 });
 
 app.use("/form/signup", router);
