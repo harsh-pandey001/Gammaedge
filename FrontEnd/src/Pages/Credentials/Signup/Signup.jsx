@@ -24,6 +24,7 @@ let history = useNavigate();
 
     const response = await fetch(`${apiUrl}/form/signup/create`, {
       method: "POST",
+      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
