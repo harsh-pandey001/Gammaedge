@@ -1,9 +1,7 @@
 import React, { useEffect } from "react";
 import {
   BrowserRouter as Router,
-  Switch,
   Route,
-  Link,
   BrowserRouter,
   Routes,
 } from "react-router-dom";

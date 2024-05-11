@@ -5,18 +5,10 @@ const router = require("./routes/formRoutes");
 const app = express();
 const port = process.env.PORT || 5000;
 
+app.use(cors({ origin: "https://my-indore-guide-fontend.vercel.app" }));
 app.use(express.json());
 
 connectDB();
-app.use(
-  cors(
-  //   {
-  //   origin: ["https://my-indore-guide-fontend.vercel.app"],
-  //   methods: ["POST", "GET"],
-  //   credentials: true,
-  // }
-)
-);
 
 app.get("/", (req, res) => {
   res.json("hello");
