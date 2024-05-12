@@ -12,8 +12,7 @@ let history = useNavigate();
     nationality: "",
     gender: "",
     email: "",
-    password: "",
-    // cpassword: "",
+    password: ""
   });
 
   const handleSubmit = async (e) => {
@@ -24,7 +23,6 @@ let history = useNavigate();
 
     const response = await fetch(`${apiUrl}/form/signup/create`, {
       method: "POST",
-      mode: "no-cors",
       headers: {
         "Content-Type": "application/json",
       },
