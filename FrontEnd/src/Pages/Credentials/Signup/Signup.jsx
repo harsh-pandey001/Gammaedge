@@ -17,10 +17,8 @@ let history = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    history("/login")
-    props.showalert("Login with the Credential","success");
-    const { name, num, nationality, gender, email, password } = credentials;
 
+    const { name, num, nationality, gender, email, password } = credentials;
     const response = await fetch(`${apiUrl}/form/signup/create`, {
       method: "POST",
       headers: {
@@ -35,6 +33,8 @@ let history = useNavigate();
         password,
       }),
     });
+    props.showalert("Login with the Credential","success");
+    history("/login")
     const json = await response.json();
   
   };
