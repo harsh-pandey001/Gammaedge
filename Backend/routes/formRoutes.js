@@ -75,6 +75,27 @@ router.post(
   }
 );
 
+
+//Email checking
+router.post("/check-email", async (req, res) => {
+  const { email } = req.body;
+
+  try {
+    const existingUser = await User.findOne({ email });
+    if (existingUser) {
+      // Email already exists
+      return res.status(400).json({ error: 'Email already exists' });
+    } else {
+      // Email is unique
+      return res.status(200).json({ message: 'Email is unique' });
+    }
+  } catch (error) {
+    console.error(error);
+    return res.status(500).send("Internal server occur");
+  }
+});
+
+
 //Routes : 3
 // router.route("/orders").post(paymentController.orderCreate);s
 

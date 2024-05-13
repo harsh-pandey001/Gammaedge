@@ -4,39 +4,60 @@ import { useNavigate } from "react-router-dom";
 const apiUrl = process.env.REACT_APP_API;
 
 const Signup = (props) => {
-
-let history = useNavigate();
+  let history = useNavigate();
   const [credentials, setCredentials] = useState({
     name: "",
     num: "",
     nationality: "",
     gender: "",
     email: "",
-    password: ""
+    password: "",
   });
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     const { name, num, nationality, gender, email, password } = credentials;
-    const response = await fetch(`${apiUrl}/form/signup/create`, {
+
+    if (!name || !num || !nationality || !gender || !email || !password) {
+      props.showalert("Please fill in all fields", "danger");
+      return;
+    }
+    
+    const response = await fetch(`${apiUrl}/form/email/check-email`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({
-        name,
-        num,
-        nationality,
-        gender,
-        email,
-        password,
-      }),
+      body: JSON.stringify({ email }), // Only send email for checking
     });
-    props.showalert("Login with the Credential","success");
-    history("/login")
-    const json = await response.json();
-  
+
+    if (response.ok) {
+      props.showalert("Login with the Credential", "success");
+      history("/login");
+      const createUserResponse = await fetch(`${apiUrl}/form/signup/create`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          name,
+          num,
+          nationality,
+          gender,
+          email,
+          password,
+        }),
+      });
+
+      //optional code to check any unexpected error
+      if (createUserResponse.ok) {
+        const json = await createUserResponse.json();
+      } else {
+        console.error("Error creating user:", createUserResponse.statusText);
+      }
+    } else {
+      props.showalert("Email is already in use", "danger");
+    }
   };
   const onChange = (e) => {
     setCredentials({ ...credentials, [e.target.name]: e.target.value });
@@ -67,7 +88,12 @@ let history = useNavigate();
               required=""
             />
 
-            <select id="gender" name="gender" onChange={onChange} className={style.input}>
+            <select
+              id="gender"
+              name="gender"
+              onChange={onChange}
+              className={style.input}
+            >
               <option disabled selected value className={style.input}>
                 {" "}
                 Gender{" "}
