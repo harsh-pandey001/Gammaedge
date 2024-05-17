@@ -21,6 +21,7 @@ let history = useNavigate()
         email: credentials.email,
         password: credentials.password,
       }),
+      mode: 'cors'
     });
     const json = await response.json();
     console.log(json);

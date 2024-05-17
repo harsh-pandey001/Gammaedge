@@ -12,7 +12,6 @@ var jwt = require("jsonwebtoken");
 router.post("/create", async (req, res) => {
   // console.log("connected with backend", req.body);
   console.log("connected with backend");
-
   const salt = await bcrypt.genSalt(10);
   const secPass = await bcrypt.hash(req.body.password, salt);
   const newuser = new User({

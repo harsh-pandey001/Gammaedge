@@ -39,7 +39,8 @@ const Signup = (props) => {
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify({ email }), // Only send email for checking
+      body: JSON.stringify({ email }), // Only send email for 
+      mode: 'cors'
     });
 
     if (response.ok) {
