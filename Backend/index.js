@@ -5,20 +5,34 @@ const router = require("./routes/formRoutes");
 const app = express();
 const port = process.env.PORT || 5000;
 
-app.use(express.json());
-app.use(
-  cors({
-    origin: "https://my-indore-guide-fontend.vercel.app", // Allow requests from this origin
-    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
-    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
-    credentials: true 
-  })
+// app.use(
+//   cors({
+//     origin: "https://my-indore-guide-fontend.vercel.app", // Allow requests from this origin
+//     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
+//     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
+//     credentials: true 
+//   })
+// );
 
-  // { allowedHeaders:"Access-Control-Allow-Origin",
-  //    origin: "https://my-indore-guide-fontend.vercel.app"})
-);
+
+// CORS configuration
+const corsOptions = {
+  origin: 'https://my-indore-guide-fontend.vercel.app', // Allow this origin
+  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'], // Allow these methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allow these headers
+  credentials: true // Include credentials if needed
+};
+
+// Use CORS middleware
+app.use(cors(corsOptions));
+
+// Enable preflight request handling for all routes
+app.options('*', cors(corsOptions));
+
 connectDB();
 
+
+app.use(express.json());
 app.get("/", (req, res) => {
   res.json("hello");
 });
