@@ -14,6 +14,13 @@ const Signup = (props) => {
     password: "",
   });
 
+  const isPasswordValid = (password) => {
+    // Regular expressions for password validation
+    const passwordRegex = /^(?=.*[0-9])(?=.*[!@#$%^&*])(?=.*[A-Z]).{6,}$/;
+    return passwordRegex.test(password);
+  };
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const { name, num, nationality, gender, email, password } = credentials;
@@ -22,7 +29,11 @@ const Signup = (props) => {
       props.showalert("Please fill in all fields", "danger");
       return;
     }
-    
+    if (!isPasswordValid(password)) {
+      props.showalert("Password must be at least 6 characters long and contain at least one special character, one numerical digit, and one capital letter.", "danger");
+      return;
+    }
+
     const response = await fetch(`${apiUrl}/form/email/check-email`, {
       method: "POST",
       headers: {
@@ -130,6 +141,7 @@ const Signup = (props) => {
               className={style.input}
               required=""
             />
+            <i class="bi bi-eye"id="togglePassword"></i>
 
             <input
               value="Sign In"
