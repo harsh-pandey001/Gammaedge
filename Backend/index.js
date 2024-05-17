@@ -11,6 +11,7 @@ app.use(
     origin: "https://my-indore-guide-fontend.vercel.app", // Allow requests from this origin
     methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
     allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
+    credentials: true 
   })
 
   // { allowedHeaders:"Access-Control-Allow-Origin",
