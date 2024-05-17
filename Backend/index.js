@@ -7,7 +7,11 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(
-  cors()
+  cors({
+    origin: "https://my-indore-guide-fontend.vercel.app", // Allow requests from this origin
+    methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"], // Allow these methods
+    allowedHeaders: ["Content-Type", "Authorization"], // Allow these headers
+  })
 
   // { allowedHeaders:"Access-Control-Allow-Origin",
   //    origin: "https://my-indore-guide-fontend.vercel.app"})
@@ -35,7 +39,6 @@ app.get("/form", (req, res) => {
 //   );
 //   next();
 // });
-
 
 app.use("/form/signup", router);
 app.use("/form/auth", router);

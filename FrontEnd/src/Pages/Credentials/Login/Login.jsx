@@ -16,6 +16,7 @@ let history = useNavigate()
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        "Access-Control-Allow-Origin" : "https://my-indore-guide-backend.vercel.app"
       },
       body: JSON.stringify({
         email: credentials.email,
