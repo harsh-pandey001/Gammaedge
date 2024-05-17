@@ -6,10 +6,12 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(express.json());
-// app.use(
-//   cors()
-//   { origin: "https://my-indore-guide-fontend.vercel.app"}
-// );
+app.use(
+  cors(
+
+  { allowedHeaders:"Access-Control-Allow-Origin",
+     origin: "https://my-indore-guide-fontend.vercel.app"})
+);
 connectDB();
 
 app.get("/", (req, res) => {
