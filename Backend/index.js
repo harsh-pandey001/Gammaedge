@@ -7,10 +7,10 @@ const port = process.env.PORT || 5000;
 
 app.use(express.json());
 app.use(
-  cors(
+  cors()
 
-  { allowedHeaders:"Access-Control-Allow-Origin",
-     origin: "https://my-indore-guide-fontend.vercel.app"})
+  // { allowedHeaders:"Access-Control-Allow-Origin",
+  //    origin: "https://my-indore-guide-fontend.vercel.app"})
 );
 connectDB();
 
@@ -21,9 +21,9 @@ app.get("/", (req, res) => {
 app.get("/form", (req, res) => {
   res.json("from");
 });
-app.options('*', cors({
-  origin: 'https://my-indore-guide-fontend.vercel.app'
-}));
+// app.options('*', cors({
+//   origin: 'https://my-indore-guide-fontend.vercel.app'
+// }));
 
 // app.use((req, res, next) => {
 //   res.setHeader("Access-Control-Allow-Origin", "https://my-indore-guide-fontend.vercel.app");
